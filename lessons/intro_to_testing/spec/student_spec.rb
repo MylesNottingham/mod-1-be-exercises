@@ -20,7 +20,7 @@ describe Student do
     end
 
     it 'starts with no cookies' do
-      # test it has cookies
+      # test starts with no cookies
       student = Student.new('Penelope')
 
       expect(student.cookies).to eq([])
