@@ -1,6 +1,5 @@
 class Painter
-
-  attr_reader :name
+  attr_reader :name, :paints
 
   def initialize(name)
     @name = name
@@ -15,7 +14,7 @@ class Painter
     @paints
   end
 
-  def add_all_paints
+  def add_all_paints(paint_1, paint_2)
     @paints << paint_1
     @paints << paint_2
   end
