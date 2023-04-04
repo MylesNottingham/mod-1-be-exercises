@@ -127,17 +127,15 @@ p list_of_categories
 
 # Challenge 3 (extra spicy): 
 # Get the operation hours, and format a return value such that it looks like this:
-opened = denver_biscuit_co[:hours][0][:open]
+hours = denver_biscuit_co[:hours][0][:open]
+days= [:Monday, :Tuesday, :Wednesday, :Thursday, :Friday, :Saturday, :Sunday]
 
-operation_hours= [:Monday, :Tuesday, :Wednesday, :Thursday, :Friday, :Saturday, :Sunday]
-oh = {}
-
-operation_hours.each_with_index do |day, index|
-    oh[day][:start] = opened[index][:start]
-    oh[day][:end] = opened[index][:end]
+hours_of_operation = {}
+days.each_with_index do |day, index|
+    hours_of_operation[day] = {start: hours[index][:start], end: hours[index][:end]}
 end
 
-p oh
+p hours_of_operation
 
 
 # {
