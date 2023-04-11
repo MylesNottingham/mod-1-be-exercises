@@ -28,7 +28,9 @@ RSpec.describe Intern do
 
   describe "Ability to have name and ID, like any other Employee" do
     # Write tests to prove that an Intern can be an Employee, with name and ID.
-    # The Intern should also have the ability to have the "sick_leave" benefit, and not just the one it starts with. 
+    chris = Intern.new(5, "Chris", "0")
+    expect(chris.name).to eq("Chris")
+    # The Intern should also have the ability to have the "sick_leave" benefit, and not just the one it starts with.
   end
 
 end
