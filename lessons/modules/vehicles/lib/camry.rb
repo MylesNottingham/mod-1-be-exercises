@@ -1,12 +1,10 @@
 # ./camry.rb
-class Camry
-  def start
-    "Engine on!"
-  end
+require "./engine"
+require "./airconditionable"
 
-  def stop
-    "Engine off!"
-  end
+class Camry
+  include Engine,
+          Airconditionable
 
   def drive
     "Back wheels go!"

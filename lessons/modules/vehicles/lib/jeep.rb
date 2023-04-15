@@ -1,12 +1,10 @@
 # ./jeep.rb
-class Jeep
-  def start
-    "Engine on!"
-  end
+require "./engine"
+require "./airconditionable"
 
-  def stop
-    "Engine off!"
-  end
+class Jeep
+  include Engine,
+          Airconditionable
 
   def drive
     "All wheels go!"
