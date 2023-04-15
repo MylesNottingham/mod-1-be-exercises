@@ -210,12 +210,18 @@ characters = [
 ]
 
 
-# Challenge #1 
+# Challenge #1
 
 # Get a unique list of the homeworlds
 
 # ["Tatooine", "Naboo", "Alderaan" ... ]
 
+homeworlds = characters.map do |character|
+    character[:homeworld]
+end.uniq
+
+# print homeworlds
+# puts
 
 # Challenge #2
 
@@ -223,11 +229,16 @@ characters = [
 
 # ["Luke Skywalker", "Darth Vader", "Biggs Darklighter" ... ]
 
+have_starships = characters.each_with_object([]) do |character, list|
+    list << character[:name] unless character[:starships].empty?
+end
 
+# print have_starships
+# puts
 
 # CHALLENGE #3
 
-# Create a new hash such that each character points to their collection of starships: 
+# Create a new hash such that each character points to their collection of starships:
 
 # {
 #     "Luke Skywalker" => ["T-65 X-Wing", "Lambda-class T-4A Shuttle"],
@@ -239,15 +250,34 @@ characters = [
 #     ...
 # }
 
+character_starships = characters.each_with_object({}) do |character, hash|
+    hash[character[:name]] = character[:starships]
+end
 
-# Challenge #4 
+# print character_starships
+# puts
 
-# Create a new hash such that each movie points to a collection of characters 
+# Challenge #4
+
+# Create a new hash such that each movie points to a collection of characters
 
 # {
 #     "A New Hope" => ["Luke Skywalker", "C-3PO", ... ],
-#     "The Empire Strikes Back" => ["Luke Skywalker", "C-3PO" ... ], 
+#     "The Empire Strikes Back" => ["Luke Skywalker", "C-3PO" ... ],
 #      ...
 #      ...
 #      ...
 # }
+
+movies = characters.flat_map do |character|
+    character[:films]
+end.uniq
+
+movie_characters = movies.each_with_object({}) do |movie, hash|
+    hash[movie] = characters.filter_map do |character|
+        character[:name] if character[:films].include?(movie)
+    end
+end
+
+print movie_characters
+puts
