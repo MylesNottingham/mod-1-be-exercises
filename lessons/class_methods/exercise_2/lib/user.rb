@@ -6,18 +6,21 @@ class User
   attr_reader :name
   def initialize(name)
     @name = name
-    #binding.pry ##What is the @name property?
+    ##What is the @name property?
+    # "Alex"
   end
 
   def say_hello
-    #binding.pry ##What will be output here?
+    ##What will be output here?
+    # "Hello, Alex"
     "Hello, " + @name
   end
 
   def self.create_multiple(users)
     users.map do |user|
       new_user = User.new(user[:name])
-      #binding.pry ## What is new_user? What properties does it have?
+      ## What is new_user? What properties does it have?
+      # An instance of User. name
     end
   end
 end
