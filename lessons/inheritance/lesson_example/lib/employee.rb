@@ -7,11 +7,18 @@ class Employee
   end
 
   def total_compensation
-    @base_salary + @bonus
+    @bonus ? @base_salary + @bonus : @base_salary
   end
 
   def benefits
     [:sick_leave]
   end
 
+  def base_salary
+    raise NotImplementedError, "This #{self.class} cannot respond to:"
+  end
+
+  def bonus
+    raise NotImplementedError, "This #{self.class} cannot respond to:"
+  end
 end
