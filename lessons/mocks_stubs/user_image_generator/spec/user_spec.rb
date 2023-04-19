@@ -7,8 +7,9 @@ RSpec.describe User do
     it 'exists' do
       # I pass a real image generator object - this is potentially slow and costly
       # Lets mock this object whenever possible
-      image = ImageGenerator.new(20)
-      user = User.new("t@gmail.com", image)
+      mock_image = double("image")
+      # image = ImageGenerator.new(20)
+      user = User.new("t@gmail.com", mock_image)
       expect(user).to be_a User
     end
 
