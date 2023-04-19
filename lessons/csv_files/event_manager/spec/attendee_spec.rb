@@ -4,10 +4,10 @@ require './lib/attendee'
 
 describe Attendee do
   before :each do
-    @person_1 = Attendee.new(1, "Allison", "Nguyen", "20010")
-    @person_2 = Attendee.new(4, "David", "Thomas", "7306")
-    @person_3 = Attendee.new(5, "Chris", "Sackett", nil)
-    @person_4 = Attendee.new(7, "Mary Kate", "Curry", "212305")
+    @person_1 = Attendee.new({ id: 1, first_name: "Allison", last_name: "Nguyen", zipcode: "20010" })
+    @person_2 = Attendee.new({ id: 4, first_name: "David", last_name: "Thomas", zipcode: "7306" })
+    @person_3 = Attendee.new({ id: 5, first_name: "Chris", last_name: "Sackett", zipcode: nil })
+    @person_4 = Attendee.new({ id: 7, first_name: "Mary Kate", last_name: "Curry", zipcode: "212305" })
   end
 
   it 'exists' do

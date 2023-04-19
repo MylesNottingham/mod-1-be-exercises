@@ -1,11 +1,11 @@
 class Attendee
   attr_reader :id
 
-  def initialize(id, first_name, last_name, zip)
-    @id = id
-    @first_name = first_name
-    @last_name = last_name
-    @zip = zip
+  def initialize(row)
+    @id = row[:id]
+    @first_name = row[:first_name]
+    @last_name = row[:last_name]
+    @zipcode = row[:zipcode]
   end
 
   def name
@@ -13,6 +13,6 @@ class Attendee
   end
 
   def zipcode
-    @zip.to_s.rjust(5,"0")[0..4]
+    @zipcode.to_s.rjust(5,"0")[0..4]
   end
 end
